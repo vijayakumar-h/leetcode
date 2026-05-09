@@ -1,9 +1,19 @@
 class Solution {
   bool isPalindrome(int x) {
-        String a = x.toString().split('').reversed.join();
-    if (x.toString() == a) {
-      return true;
+        if(x<0){
+      return false;
     }
-    return false;
+    String s = x.toString();
+    int left = 0;
+    int right = s.length -1;
+
+    while(left < right){
+      if(s[left] != s[right]){
+        return false;
+      }
+      left++;
+      right--;
+    }
+    return true;
   }
 }
