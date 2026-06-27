@@ -1,16 +1,15 @@
 class Solution {
   List<int> findDuplicates(List<int> nums) {
- final Set<int> seen = {};
-    final Set<int> duplicates = {}; 
-    
-    for (final i in nums) {
-      if (seen.contains(i)) {
-        duplicates.add(i);
-      } else {
-        seen.add(i);
-      }
-    }
-    
-    return duplicates.toList();
-  }
+    Set<int> h = {};
+    List<int> res = [];
+
+    for(int i in nums){
+        if(h.contains(i)){
+            res.add(i);
+        }else{
+            h.add(i);
+        }
+    } 
+    return res;
+     }
 }
