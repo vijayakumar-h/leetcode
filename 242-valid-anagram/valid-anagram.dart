@@ -3,9 +3,17 @@ class Solution {
     if(s.length != t.length){
         return false;
     }
-    String checkSort(String name) => (name.split('')..sort()).join(); 
-    String sChar = checkSort(s);
-    String tChar = checkSort(t);
-    return sChar == tChar;
+    final Map<String, int> result = {};
+    for(final count in s.split('')){
+        result.update(count, (val) => val+1, ifAbsent: () => 1);
+    }
+    for(final count in t.split('')){
+        int resultCount = result[count]??0;
+        if(resultCount <= 0){
+            return false;
+        }
+        result[count] = resultCount-1;
+    }
+    return true;
   }
 }
