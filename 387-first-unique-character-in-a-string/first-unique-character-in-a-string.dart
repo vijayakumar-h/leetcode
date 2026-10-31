@@ -1,15 +1,11 @@
 class Solution {
   int firstUniqChar(String s) {
-    Map<String,int> map = {};
-    
-    for(int i=0; i<s.length; i++){
-        String word = s[i];
-        map[word] = (map[word] ?? 0)+1;
+    Map<String, int> result = {};
+    for(final count in s.split('')){
+        result.update(count, (value) => value+1, ifAbsent:()=> 1);
     }
-
     for(int i=0; i<s.length; i++){
-        String word = s[i];
-        if(map[word] == 1){
+        if(result[s[i]] == 1){
             return i;
         }
     }
